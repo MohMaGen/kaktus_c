@@ -19,14 +19,21 @@ OBJECTS_DEBUG := $(patsubst $(SOURCEDIR)%.c,$(BUILDDIR)debug/%.o,$(SOURCES))
 TARGETPATH := $(TARGETDIR)$(NAME)
 DEBUGPATH := $(TARGETDIR)debug-$(NAME)
 
-main: $(OBJECTS)
+mk-dirs:
+	bash ./mk_dirs.sh
+
+clear:
+	rm -rf ./target
+	rm -rf ./build
+
+main: mk-dirs $(OBJECTS)
 	@echo "[ build ] main."
 	$(CC) -o $(TARGETPATH) $(OBJECTS) $(CCFLAGS)
 
 main-run: main
 	$(TARGETPATH)
 
-debug: $(OBJECTS_DEBUG)
+debug: mk-dirs $(OBJECTS_DEBUG)
 	@echo "[ build ] main."
 	$(CC) -o $(DEBUGPATH) $(OBJECTS_DEBUG) $(CCFLAGS)
 
