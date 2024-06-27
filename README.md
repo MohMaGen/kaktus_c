@@ -15,7 +15,13 @@
 ## todo
 - [ ] __types lib__ (branch = types).
     - [x] __string__.
-    - [ ] __hash table__.
+    - [x] __hash table__.
         - [ ] __macro__.
+            - [x] __insert__.
+            - [x] __alloc__.
+            - [x] __iterator__.
+            - [x] __get__.
+            - [ ] __free__.
+            - [ ] __remove__.
         - [ ] __hash\_table\_s\_s__
 - [ ] __server__ (branch = server).
