@@ -5,7 +5,7 @@ BUILDDIR := build/
 TARGETDIR := target/
 
 
-CCWARNINGS := -Wall -Werror -pedantic -pedantic-errors -fcolor-diagnostics -fcaret-diagnostics -fshow-source-location
+CCWARNINGS := -Wall -Werror -pedantic -pedantic-errors
 CCLIBS :=
 CCINCLUDE := -I $(SOURCEDIR)
 DEBUG := -g -gmodules
@@ -20,15 +20,15 @@ TARGETPATH := $(TARGETDIR)$(NAME)
 DEBUGPATH := $(TARGETDIR)debug-$(NAME)
 
 main: $(OBJECTS)
-	echo "[ build ] main."
+	@echo "[ build ] main."
 	$(CC) -o $(TARGETPATH) $(OBJECTS) $(CCFLAGS)
 
 main-run: main
 	$(TARGETPATH)
 
 debug: $(OBJECTS_DEBUG)
-	echo "[ build ] main."
-	$(CC) -o $(DEBUGPATH) $(OBJECTS) $(CCFLAGS)
+	@echo "[ build ] main."
+	$(CC) -o $(DEBUGPATH) $(OBJECTS_DEBUG) $(CCFLAGS)
 
 debug-run: debug
 	$(DEBUGPATH)

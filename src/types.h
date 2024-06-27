@@ -7,6 +7,13 @@ typedef struct range {
 } range;
 #define range_len(range) ((range).end - (range).start)
 
+//=========[ string ]=========
+// A pointer to char array with
+// size.
+//
+// There isnot any guaranties
+// that char array is null terminated.
+// for use [nt_string].
 typedef struct string {
     size_t len;
     char *data;
@@ -28,6 +35,20 @@ string al_string_nt(const char *data);
 string sl_string(char *data, range slice);
 
 // allocate new null terminated char array, copy of string data.
-const char* nt_string(const string *from);
+char* nt_string(string from);
+
+// check if strings are equal.
+int string_eq(string fst, string snd);
+
+size_t string_hash(string from);
+
+
+
+//==========[ hash tables ]==========
+
+// key - string, value - string hash table.
+declarate_hash_table(ht_string, string, string);
+size_t string_hash(string from);
+
 
 
