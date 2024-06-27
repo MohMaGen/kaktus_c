@@ -49,6 +49,8 @@ size_t string_hash(string from);
 // key - string, value - string hash table.
 declarate_hash_table(ht_string, string, string);
 size_t string_hash(string from);
+void ht_string_fprint(FILE *output, ht_string *table);
+void ht_string_print(ht_string *table);
 
 
 
